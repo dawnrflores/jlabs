@@ -1,0 +1,6 @@
+.git
+node_modules
+storage/framework/cache/*
+!storage/framework/cache/data
+storage/framework/sessions/*
+storage/framework/views/*
