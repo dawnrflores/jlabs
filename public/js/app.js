@@ -14717,6 +14717,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _MyGoogleMap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MyGoogleMap */ "./resources/js/Pages/MyGoogleMap.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
 function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
@@ -14733,8 +14734,6 @@ function _setPrototypeOf(t, e) { return _setPrototypeOf = Object.setPrototypeOf 
 
 
 
-var apiKey = 'AIzaSyCfX_eyHKwi_nMFByftBWPmkg4gYjPpdio';
-// Set default map settings
 var IpIndex = /*#__PURE__*/function (_Component) {
   function IpIndex(props) {
     var _this;
@@ -14767,7 +14766,8 @@ var IpIndex = /*#__PURE__*/function (_Component) {
     key: "getIpAddress",
     value: function getIpAddress() {
       var _this2 = this;
-      fetch('https://ipinfo.io/json?token=b2bd403095e7ec').then(function (response) {
+      console.log(process.env.APP_NAME);
+      fetch('https://ipinfo.io/json?token=' + "b2bd403095e7ec").then(function (response) {
         return response.json();
       }).then(function (data) {
         return _this2.setState({
@@ -14869,13 +14869,12 @@ var MapComponent = function MapComponent(props) {
     width: "100%"
   };
   var location = props.loc.split(",");
-  console.log(location);
   var defaultCenter = {
     lat: parseFloat(location[0]),
     lng: parseFloat(location[1])
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_react_google_maps_api__WEBPACK_IMPORTED_MODULE_2__.LoadScript, {
-    googleMapsApiKey: "AIzaSyCKLnx34iMvva3czLNJpeEPEyFho2Tef0Q",
+    googleMapsApiKey: "AIzaSyAIpaZ62qM-XW0iOkmx1aolK6aR8YWsDJo",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_react_google_maps_api__WEBPACK_IMPORTED_MODULE_2__.GoogleMap, {
       mapContainerStyle: mapStyles,
       zoom: 15,
@@ -14885,7 +14884,6 @@ var MapComponent = function MapComponent(props) {
       })
     })
   });
-  console.log(location);
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MapComponent);
 

@@ -6,3 +6,6 @@ composer install
 npm install
 php artisan:migrate
 php artisan db:seed
+
+username: admin@email.com
+password: password

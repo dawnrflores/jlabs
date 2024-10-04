@@ -1,9 +1,6 @@
 import { Component } from "react"
 import MyGoogleMap from './MyGoogleMap'
 
-const apiKey = 'AIzaSyCfX_eyHKwi_nMFByftBWPmkg4gYjPpdio';
-// Set default map settings
-
 class IpIndex extends Component{
     constructor(props){
         super(props);
@@ -30,7 +27,8 @@ class IpIndex extends Component{
     }
 
     getIpAddress(){
-        fetch('https://ipinfo.io/json?token=b2bd403095e7ec')
+        console.log(process.env.APP_NAME)
+        fetch('https://ipinfo.io/json?token='+process.env.MIX_REACT_APP_IPINFO_SECRET)
             .then(response => response.json())
             .then(data => this.setState({location: {
                 ip: data.ip,

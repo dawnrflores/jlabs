@@ -35,4 +35,8 @@ return [
         'access_token' => env('IPINFO_SECRET'),
     ],
 
+    'google_map_key' => [
+        'key' => env('GOOGLE_MAP_API_KEYS')
+    ]
+
 ];

@@ -1,5 +1,5 @@
 import React from "react";
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import { GoogleMap, LoadScript, Marker, } from "@react-google-maps/api";
 
 const MapComponent = (props) => {
   const mapStyles = {
@@ -9,15 +9,13 @@ const MapComponent = (props) => {
 
   const location = props.loc.split(",")
 
-  console.log(location)
-
   const defaultCenter = {
     lat: parseFloat(location[0]),
     lng: parseFloat(location[1]),
   };
 
   return (
-    <LoadScript googleMapsApiKey="AIzaSyCKLnx34iMvva3czLNJpeEPEyFho2Tef0Q">
+    <LoadScript googleMapsApiKey={process.env.MIX_REACT_APP_API_KEYS}>
       <GoogleMap
         mapContainerStyle={mapStyles}
         zoom={15}
@@ -27,7 +25,6 @@ const MapComponent = (props) => {
       </GoogleMap>
     </LoadScript>
   );
-    console.log(location)
 };
 
 export default MapComponent;
