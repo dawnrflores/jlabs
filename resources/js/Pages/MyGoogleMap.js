@@ -7,22 +7,27 @@ const MapComponent = (props) => {
     width: "100%",
   };
 
+  const location = props.loc.split(",")
+
+  console.log(location)
+
   const defaultCenter = {
-    lat: 40.712776,
-    lng: -74.005974,
+    lat: parseFloat(location[0]),
+    lng: parseFloat(location[1]),
   };
 
   return (
-    <LoadScript googleMapsApiKey="AIzaSyCfX_eyHKwi_nMFByftBWPmkg4gYjPpdio">
+    <LoadScript googleMapsApiKey="AIzaSyCKLnx34iMvva3czLNJpeEPEyFho2Tef0Q">
       <GoogleMap
         mapContainerStyle={mapStyles}
-        zoom={12}
+        zoom={15}
         center={defaultCenter}
       >
         <Marker position={defaultCenter} />
       </GoogleMap>
     </LoadScript>
   );
+    console.log(location)
 };
 
 export default MapComponent;

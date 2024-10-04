@@ -14868,21 +14868,24 @@ var MapComponent = function MapComponent(props) {
     height: "400px",
     width: "100%"
   };
+  var location = props.loc.split(",");
+  console.log(location);
   var defaultCenter = {
-    lat: 40.712776,
-    lng: -74.005974
+    lat: parseFloat(location[0]),
+    lng: parseFloat(location[1])
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_react_google_maps_api__WEBPACK_IMPORTED_MODULE_2__.LoadScript, {
-    googleMapsApiKey: "AIzaSyCfX_eyHKwi_nMFByftBWPmkg4gYjPpdio",
+    googleMapsApiKey: "AIzaSyCKLnx34iMvva3czLNJpeEPEyFho2Tef0Q",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_react_google_maps_api__WEBPACK_IMPORTED_MODULE_2__.GoogleMap, {
       mapContainerStyle: mapStyles,
-      zoom: 12,
+      zoom: 15,
       center: defaultCenter,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_react_google_maps_api__WEBPACK_IMPORTED_MODULE_2__.Marker, {
         position: defaultCenter
       })
     })
   });
+  console.log(location);
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MapComponent);
 
