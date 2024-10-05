@@ -18,8 +18,18 @@ class LoginAuthController extends Controller
         return response()->json(['success'=> false, 'message'=> 'Enter a valid credentials'], Response::HTTP_NOT_FOUND);
     }
 
-    public function logout(){
-        Auth::logout();
+    public function user(Request $request){
+        return response()->json(Auth::user());
+    }
+
+    public function destroy(Request $request){
+        \Log::info($request);
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
         return response()->noContent();
     }
     

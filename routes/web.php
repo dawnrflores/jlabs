@@ -16,28 +16,31 @@ use Illuminate\Http\Request;
 */
 
 Route::post('login', [LoginAuthController::class, 'login']);
-
-// Route::group(['middleware' => ['auth']], function () {
-//     Route::get('/', function () {
-//         return view('layouts.app');
-//     });
-//     Route::post('logout', [LoginAuthController::class, 'logout']);
-// });
-
-// Route::group(['middleware' => ['guest']], function () {
-//     //
-//     Route::get('/', function () {
-//         return view('login');
-//     })->name('login');
-
-// });
-
-Route::get('/', function () {
-    return view('dashboard');
+Route::get('login', function () {
+        return view('layouts.app');
 });
 
-Route::get('/*', function () {
-    return view('layouts.app');
-})->middleware(['auth'])->name('dashboard');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/', function () {
+        return view('layouts.app');
+    });
+    Route::post('logout', [LoginAuthController::class, 'logout']);
+});
 
-require __DIR__.'/auth.php';
+Route::group(['middleware' => ['guest']], function () {
+    //
+    Route::get('/', function () {
+        return view('login');
+    })->name('login');
+
+});
+
+// Route::get('/', function () {
+//     return view('layouts.app');
+// });
+
+// Route::get('/*', function () {
+//     return view('layouts.app');
+// })->middleware(['auth'])->name('dashboard');
+
+// require __DIR__.'/auth.php';
